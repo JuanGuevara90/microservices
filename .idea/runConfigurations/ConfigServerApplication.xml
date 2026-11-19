@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ConfigServerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.econmmerce.config_server.ConfigServerApplication" />
+    <module name="config-server" />
+    <option name="VM_PARAMETERS" value="-DGITHUB_USER=JuanGuevara90 -DGITHUB_TOKEN=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 " />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.econmmerce.config_server.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

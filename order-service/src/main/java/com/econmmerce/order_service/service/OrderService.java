@@ -1,0 +1,17 @@
+package com.econmmerce.order_service.service;
+
+import com.econmmerce.order_service.dto.OrderRequest;
+import com.econmmerce.order_service.dto.OrderResponse;
+import com.econmmerce.order_service.model.OrderStatus;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public interface OrderService {
+    OrderResponse placeOrder(OrderRequest orderRequest, String userId); // Create
+    //List<OrderResponse> getAllOrders();                  // Read All
+    List<OrderResponse> getOrders(String userId, boolean isAdmin);                  // Read x user
+    OrderResponse getOrderById(Long id);                 // Read One
+    void deleteOrder(Long id);                           // Delete
+    void updateOrderStatus(String orderNumber, OrderStatus newOrderStatus);
+}

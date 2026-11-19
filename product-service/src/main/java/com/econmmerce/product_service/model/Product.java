@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Document(value = "products")
+@Document(value = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

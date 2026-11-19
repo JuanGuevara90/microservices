@@ -1,0 +1,41 @@
+package com.econmmerce.order_service.listener;
+
+
+import com.econmmerce.order_service.event.OrderCancelledEvent;
+import com.econmmerce.order_service.event.OrderConfirmedEvent;
+import com.econmmerce.order_service.event.OrderPlacedEvent;
+import com.econmmerce.order_service.model.OrderStatus;
+import com.econmmerce.order_service.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+@Component
+@Slf4j
+@RequiredArgsConstructor
+public class OrderEventListener {
+    private final OrderService orderService;
+
+    @RabbitListener(queues = "order-confirmed-queue")
+    public void handleOrderConfirmed(OrderConfirmedEvent event){
+
+        if(event.orderNumber()== null){
+
+            log.error("OrderConfirmedEvent con orderNUmber null");
+            return;
+        }
+        orderService.updateOrderStatus(event.orderNumber(), OrderStatus.CONFIRMED);
+    }
+
+    @RabbitListener(queues = "order-cancelled-queue")
+    public void handleOrderCancelled(OrderCancelledEvent event){
+        if(event.orderNumber()== null){
+
+            log.error("OrderCancelledEvent con orderNUmber null");
+            return;
+        }
+        orderService.updateOrderStatus(event.orderNumber(), OrderStatus.CANCELLED);
+    }
+
+}
