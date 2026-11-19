@@ -1,0 +1,12 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: juanpablog.gordilo@gmail.com # <--- Pega tu usuario aquí
+    password: sowkpoqcttvsspoi # <--- Pega tu password aquí
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
